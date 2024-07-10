@@ -4,6 +4,7 @@ import commons.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -17,7 +18,7 @@ public class Level_01_Setup_Environment extends BaseTest {
 
     @AfterClass
     public void afterClass(){
-        //quitBrowser(driver);
+        quitBrowser(driver);
     }
 
     @Test
@@ -35,6 +36,8 @@ public class Level_01_Setup_Environment extends BaseTest {
         driver.findElement(By.xpath("//input[@id='txtPassword']")).sendKeys("Hoang Hai Yen");
         driver.findElement(By.xpath("//input[@id='txtPhone']")).sendKeys("0357207250");
         driver.findElement(By.xpath("//button[@class='btn_pink_sm fs16']")).click();
+        Assert.assertTrue(driver.findElement(By.xpath("//input[@id='txtEmail']//following-sibling::label")).isDisplayed());
+        Assert.assertEquals(driver.findElement(By.xpath("//input[@id='txtEmail']//following-sibling::label")).getText(), "Không biết", "Sai");
 
 
     }
