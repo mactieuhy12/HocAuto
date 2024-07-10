@@ -37,7 +37,7 @@ public class Level_01_Setup_Environment extends BaseTest {
         driver.findElement(By.xpath("//input[@id='txtPhone']")).sendKeys("0357207250");
         driver.findElement(By.xpath("//button[@class='btn_pink_sm fs16']")).click();
         Assert.assertTrue(driver.findElement(By.xpath("//input[@id='txtEmail']//following-sibling::label")).isDisplayed());
-        Assert.assertEquals(driver.findElement(By.xpath("//input[@id='txtEmail']//following-sibling::label")).getText(), "Không biết", "Sai");
+        Assert.assertEquals(driver.findElement(By.xpath("//input[@id='txtEmail']//following-sibling::label")).getText(), "Vui lòng nhập email hợp lệ", "Sai");
 
 
     }
