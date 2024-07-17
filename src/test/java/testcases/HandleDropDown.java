@@ -3,13 +3,12 @@ package testcases;
 import commons.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Level_01_Setup_Environment extends BaseTest {
+public class HandleDropDown extends BaseTest {
     WebDriver driver;
     @BeforeClass
     public void beforeClass(){
