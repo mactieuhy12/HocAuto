@@ -9,6 +9,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.Random;
+
 public class TC_4 extends BaseTest {
     WebDriver driver;
     Select select;
@@ -37,19 +39,24 @@ public class TC_4 extends BaseTest {
         Assert.assertEquals(select2.getOptions().size(), 13);
         Select select3 = new Select(driver.findElement(By.xpath("//select[@name = 'DateOfBirthYear']")));
         select3.selectByVisibleText("1985");
-        driver.findElement(By.xpath("//input[@id = 'Email']")).sendKeys("Hoanghaiyen12a12062002@gmail.com");
+        driver.findElement(By.xpath("//input[@id = 'Email']")).sendKeys("Hoanghaiyen" + randomNumber() +  "@gmail.com");
         driver.findElement(By.xpath("//input[@id = 'Company']")).sendKeys("Icetea");
         driver.findElement(By.xpath("//input[@id = 'Password']")).sendKeys("Icetea");
         driver.findElement(By.xpath("//input[@id = 'ConfirmPassword']")).sendKeys("Icetea");
         driver.findElement(By.xpath("//button[@id = 'register-button']")).click();
         Assert.assertEquals(driver.findElement(By.xpath("//div[@class = 'result' and text() = 'Your registration completed']")).getText(), "Your registration completed");
         driver.findElement(By.xpath("//a[@class= 'ico-account']")).click();
-        Assert.assertEquals(select1.getFirstSelectedOption().getText(), "1");
-        Assert.assertEquals(select2.getFirstSelectedOption().getText(), "May");
+        Select select4 = new Select(driver.findElement(By.xpath("//select[@name = 'DateOfBirthDay']")));
+        Select select5 = new Select(driver.findElement(By.xpath("//select[@name = 'DateOfBirthMonth']")));
+        Assert.assertEquals(select4.getFirstSelectedOption().getText(), "1");
+        Assert.assertEquals(select5.getFirstSelectedOption().getText(), "May");
 
 
 
 
-
+    }
+    public int randomNumber() {
+        Random rand = new Random();
+        return  rand.nextInt(999);
     }
 }

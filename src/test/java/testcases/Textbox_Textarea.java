@@ -38,6 +38,7 @@ public class Textbox_Textarea extends BaseTest {
         selectItemInCustomDropDown(parentLocator, childLocator, "My Account");
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("Hoanghaiyen12a12062002@gmail.com");
         driver.findElement(By.xpath("//input[@id='pass']")).sendKeys("12345678");
+
         driver.findElement(By.xpath("//button[@id='send2']")).click();
 
     }
