@@ -10,8 +10,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class TC4_Invisiable extends BaseTest {
+public class TC5_Visible extends BaseTest {
     WebDriver driver;
+
     @BeforeClass
     public void beforeClass(){
         driver = getBrowserDriver("chrome");
@@ -19,14 +20,15 @@ public class TC4_Invisiable extends BaseTest {
 
     @AfterClass
     public void afterClass(){
-        //driver.quit();
+        driver.quit();
     }
     @Test
-    public void Testcase(){
+    public void TestCase(){
         driver.get("https://automationfc.github.io/dynamic-loading/");
         driver.findElement(By.xpath("//button")).click();
-        WebDriverWait wait = new WebDriverWait(driver, 5);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='loading']")));
+        WebDriverWait wait = new WebDriverWait(driver, 3);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h4")));
         Assert.assertTrue(driver.findElement(By.xpath("//h4")).isDisplayed());
+
     }
 }
