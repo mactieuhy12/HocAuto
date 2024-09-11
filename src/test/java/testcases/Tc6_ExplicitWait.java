@@ -33,7 +33,7 @@ public class Tc6_ExplicitWait extends BaseTest {
         Assert.assertTrue(driver.findElement(By.xpath("//div[@class= \"RadAjaxPanel inlinePanel\"]")).isDisplayed());
 
         //Step 03: In ra ngày đã chọn
-        Assert.assertEquals(driver.findElement(By.xpath("//span[@id = \"ctl00_ContentPlaceholder1_Label1\"]")).getText(), "No Selected Dates to display");
+        Assert.assertEquals(driver.findElement(By.xpath("//span[@id = \"ctl00_ContentPlaceholder1_Label1\"]")).getText(), "No Selected Dates to display.");
         //Step04: Chọn ngày
         driver.findElement(By.xpath("//td[@title = \"Wednesday, September 11, 2024\"]")).click();
 
@@ -43,7 +43,7 @@ public class Tc6_ExplicitWait extends BaseTest {
 
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id= \"ctl00_ContentPlaceholder1_ctl00_ContentPlaceholder1_Label1Panel\"]")));
-        Assert.assertEquals(driver.findElement(By.xpath("//div[@id= \"ctl00_ContentPlaceholder1_ctl00_ContentPlaceholder1_Label1Panel\"]")).isDisplayed(), "Wednesday, September 11, 2024");
+        Assert.assertEquals(driver.findElement(By.xpath("//div[@id= \"ctl00_ContentPlaceholder1_ctl00_ContentPlaceholder1_Label1Panel\"]")).getText(), "Wednesday, September 11, 2024");
 
 
 
