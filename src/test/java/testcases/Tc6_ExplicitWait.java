@@ -44,11 +44,6 @@ public class Tc6_ExplicitWait extends BaseTest {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id= \"ctl00_ContentPlaceholder1_ctl00_ContentPlaceholder1_Label1Panel\"]")));
         Assert.assertEquals(driver.findElement(By.xpath("//div[@id= \"ctl00_ContentPlaceholder1_ctl00_ContentPlaceholder1_Label1Panel\"]")).getText(), "Wednesday, September 11, 2024");
-
-
-
-
-
     }
 
 }
