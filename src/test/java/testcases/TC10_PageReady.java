@@ -18,6 +18,7 @@ public class TC10_PageReady extends BaseTest {
     @BeforeClass
     public void beforeClass(){
         driver = getBrowserDriver("chrome");
+        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
     }
 
     @AfterClass
@@ -27,15 +28,11 @@ public class TC10_PageReady extends BaseTest {
 
     @Test
     public void Testcase(){
-        driver.get("https://admin-demo.nopcommerce.com/");
-        driver.findElement(By.xpath("//input[@type= 'checkbox'")).click();
-        WebDriverWait wait = new WebDriverWait(driver, 8);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class = 'lds-ring' ]")));
-        driver.findElement(By.xpath("//a[@class = 'nav-link' and text() = \"Logout\"]")).click();
-        driver.findElement(By.xpath("//button[@type = 'submit']")).click();
-        WebDriverWait wait1 = new WebDriverWait(driver, 5);
-        wait1.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//i[@class = 'fas fa-cogs']")));
-        driver.findElement(By.xpath("//a[@class = 'nav-link' and text() = \"Logout\"]")).click();
+        driver.get("https://admin-demo.nopcommerce.com/login?ReturnUrl=%2Fadmin%2F");
+        driver.findElement(By.xpath("//button[@class = 'button-1 login-button']")).click();
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//i[@class = 'fas fa-cogs']")));
+       driver.findElement(By.xpath("//a[@class = 'nav-link' and text() = \"Logout\"]")).click();
         Assert.assertEquals(driver.findElement(By.xpath("//strong")).getText(), "Welcome, please sign in!" );
 
     }
