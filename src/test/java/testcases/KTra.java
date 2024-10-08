@@ -36,7 +36,7 @@ public class KTra extends BaseTest {
         select1.selectByVisibleText("Lớp");
         driver.findElement(By.xpath("//input[@id = 'searchInput']")).sendKeys("A4");
         driver.findElement(By.xpath("//button[@id = 'searchButton']")).click();
-        driver.findElement(By.xpath("//table[@id = 'studentTable']//tbody")).getSize();
+        //driver.findElement(By.xpath("//table[@id = 'studentTable']//tbody")).getSize();
 
         //Khởi tạo biến đếm số lượng dòng hiển thị
         int rowVisiable = 0;
